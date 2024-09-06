@@ -1,0 +1,258 @@
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1020;
+  transition: all 0.5s ease;
+  padding: 0.5rem 0;
+}
+
+.navbar .navbar-brand img {
+  height: auto !important;
+}
+
+.navbar .navbar-nav .nav-link {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.navbar .navbar-nav .nav-link.active {
+  color: var(--bs-success);
+}
+
+.header {
+  position: relative;
+}
+
+.header .header-content {
+  position: relative;
+  padding-top: 4rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header .headline {
+  position: relative;
+  display: block;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-family: "Playfair Display", serif;
+}
+
+.header .headline.h1 {
+  font-size: 46px;
+}
+
+.header .headline.h2 {
+  font-size: 38px;
+}
+
+.header .header-image {
+  position: relative;
+  width: 100%;
+}
+
+.section {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.section .card-stunting {
+  --bs-card-color: #1e1f1e;
+}
+
+.section .card-stunting .card-body {
+  height: 320px;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+}
+
+.section .card-stunting .card-body.show-more {
+  height: unset;
+}
+
+.section .card-stunting a#readmore::before {
+  content: "Lihat Lebih";
+}
+
+.section .card-stunting a#readmore.active::before {
+  content: "Tutup";
+}
+
+footer {
+  position: relative;
+  padding: 2rem 0;
+}
+
+footer .social-media {
+  margin-bottom: 1rem;
+}
+
+footer .social-media i {
+  font-size: 24px;
+}
+
+@media (max-width: 992px) {
+  footer {
+    padding: 5rem 0 1rem;
+  }
+}
+
+.about {
+  position: relative;
+  min-height: 100vh;
+}
+
+.diagnosis-section {
+  position: relative;
+}
+
+.diagnosis-section .header {
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+}
+
+.diagnosis-section .header-content {
+  min-height: unset !important;
+  padding-top: 0;
+}
+
+.rekomendasi-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+:root {
+  --bs-body-color: #1e1f1e;
+  --bg-body: #f0ffee;
+}
+
+body {
+  background-color: var(--bg-body);
+}
+
+.background-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.background-wrapper .dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.background-wrapper .dots .dot {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 300px;
+  opacity: 0.5;
+}
+
+.background-wrapper .dots .dot:nth-child(1) {
+  top: 5%;
+  left: 5%;
+  width: 25%;
+  background: radial-gradient(circle, #8bff9b 50%, transparent 90%);
+  box-shadow: 0 0 3rem #8bff9b;
+}
+
+.background-wrapper .dots .dot:nth-child(2) {
+  top: 0;
+  left: 60%;
+  width: 35%;
+  background: radial-gradient(circle, #52ffb7 50%, transparent 90%);
+  box-shadow: 0 0 3rem #52ffb7;
+}
+
+.background-wrapper .dots .dot:nth-child(3) {
+  top: 40%;
+  left: 40%;
+  width: 25%;
+  background: radial-gradient(circle, #76ddff 50%, transparent 90%);
+  box-shadow: 0 0 3rem #76ddff;
+}
+
+.background-wrapper .dots .dot:nth-child(4) {
+  bottom: 10%;
+  left: 30%;
+  width: 15%;
+  background: radial-gradient(circle, #89ee97 50%, transparent 90%);
+  box-shadow: 0 0 3rem #89ee97;
+}
+
+.background-wrapper .dots .dot:nth-child(5) {
+  bottom: 5%;
+  right: 0%;
+  width: 20%;
+  background: radial-gradient(circle, #a0fffc 50%, transparent 90%);
+  box-shadow: 0 0 3rem #a0fffc;
+}
+
+.background-wrapper .dots .dot:nth-child(6) {
+  bottom: 0;
+  left: 0;
+  width: 25%;
+  background: radial-gradient(circle, #a9e9ff 50%, transparent 90%);
+  box-shadow: 0 0 3rem #a9e9ff;
+}
+
+.background-wrapper .bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #dbf5d2;
+  opacity: 0.8;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.background-wrapper .wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.background-wrapper .wave.wave-bottom {
+  bottom: 0;
+  transform: translateY(10%) scaleX(-1);
+}
+
+.background-wrapper .wave.wave-top {
+  top: 0;
+  transform: translateY(-10%) scaleY(-1);
+}
+
+.background-wrapper .wave path {
+  fill: var(--bg-body);
+}
+
+.page-content {
+  position: relative;
+}
+
+.scrolled {
+  background-color: rgba(193, 228, 181, 0.8) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.05);
+}
+
+.btn {
+  padding: 0.5rem 2rem;
+}
+
+/*# sourceMappingURL=custom.css.map */
