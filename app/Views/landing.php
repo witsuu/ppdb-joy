@@ -4,6 +4,9 @@
 <div class="page-content">
     <header class="header">
         <div class="background-wrapper">
+            <div class="logo-bg">
+                <img src="/img/logo/al-azhar.png" alt="bg-logo" class="img-fluid w-100">
+            </div>
             <div class="dots">
                 <div class="dot"></div>
                 <div class="dot"></div>
