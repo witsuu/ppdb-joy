@@ -2,6 +2,13 @@ body {
   font-family: "Nunito Sans", sans-serif;
 }
 
+@media (max-width: 576px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -155,6 +162,15 @@ body {
   width: 55%;
   opacity: .3;
   transform: translate(0, -10%) rotate(10deg);
+}
+
+@media (max-width: 576px) {
+  .background-wrapper .logo-bg {
+    top: unset;
+    bottom: 0;
+    width: 150%;
+    transform: translate(35%, 0%) rotate(10deg);
+  }
 }
 
 .background-wrapper .dots {

@@ -33,7 +33,7 @@
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
                 <a class="sidebar-brand" href="/user/dashboard">
-                    <span class="align-middle">PPDB</span>
+                    <span class="align-middle">PSB AL-AZHAR</span>
                 </a>
 
                 <ul class="sidebar-nav">
@@ -48,7 +48,7 @@
                     </li>
                     <li class="sidebar-item <?= set_active('user/ppdb') ?>">
                         <a class="sidebar-link" href="/user/ppdb">
-                            <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">PPDB</span>
+                            <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">PSB</span>
                         </a>
                     </li>
                 </ul>
