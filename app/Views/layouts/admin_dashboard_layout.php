@@ -35,7 +35,7 @@
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
                 <a class="sidebar-brand" href="/admin/dashboard">
-                    <span class="align-middle">PPDB</span>
+                    <span class="align-middle">PSB Al-AZHAR</span>
                 </a>
 
                 <ul class="sidebar-nav">

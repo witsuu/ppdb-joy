@@ -90,7 +90,7 @@
                     <div class="row text-muted">
                         <div class="col-6 text-start">
                             <p class="mb-0">
-                                <a class="text-muted" href="#" target="_blank"><strong>PPDB</strong></a> <a class="text-muted" href="#" target="_blank"><strong>Al - Azhar</strong></a> &copy; <?= date('Y') ?>
+                                <a class="text-muted" href="#" target="_blank"><strong>PSB</strong></a> <a class="text-muted" href="#" target="_blank"><strong>Al - Azhar</strong></a> &copy; <?= date('Y') ?>
                             </p>
                         </div>
                     </div>

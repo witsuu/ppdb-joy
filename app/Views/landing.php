@@ -29,7 +29,7 @@
                         <div class="row justify-content-start">
                             <div class="col-md-10 col-lg-6">
                                 <span class="h1 headline">
-                                    SITUS PPDB ONLINE AL-AZHAR
+                                    SITUS PSB ONLINE AL-AZHAR
                                 </span>
                                 <span class="h2 headline">
                                     Tahun Pelajaran 2024/2025

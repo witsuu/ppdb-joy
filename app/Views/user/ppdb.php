@@ -548,5 +548,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section("modals") ?>
-<?= view_cell('\App\Libraries\Widget::modalEditPpdb', ['data' => $userPpdb, 'url' => "/user/ppdb/update/"]) ?>
+<?php if ($userPpdb['informasiPeserta']): ?>
+    <?= view_cell('\App\Libraries\Widget::modalEditPpdb', ['data' => $userPpdb, 'url' => "/user/ppdb/update/"]) ?>
+<?php endif; ?>
 <?= $this->endSection() ?>
