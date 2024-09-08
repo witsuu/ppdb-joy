@@ -6,13 +6,18 @@ use App\Models\DokumenPesertaModel;
 use App\Models\InformasiAyahModel;
 use App\Models\InformasiIbuModel;
 use App\Models\InformasiPesertaModel;
+use App\Models\PengumumanModel;
 use App\Models\UserModel;
 
 class Dashboard extends \App\Controllers\BaseController
 {
     public function index()
     {
-        return view('user/dashboard');
+        $pengumumanModel = new PengumumanModel();
+        $pengumuman_terkini = $pengumumanModel->limit(3)->findAll();
+        return view('user/dashboard', [
+            'pengumuman_terkini' => $pengumuman_terkini
+        ]);
     }
 
     public function show_ppdb()

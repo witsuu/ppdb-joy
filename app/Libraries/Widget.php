@@ -33,4 +33,16 @@ class Widget
     {
         return view('widget/modalEditPpdb', $params);
     }
+    public function modalAddPengumuman()
+    {
+        return view('widget/modalAddPengumuman');
+    }
+    public function modalEditPengumuman(array $params)
+    {
+        return view('widget/modalEditPengumuman', $params);
+    }
+    public function modalDeletePengumuman(array $params)
+    {
+        return view('widget/modalDeletePengumuman', $params);
+    }
 }

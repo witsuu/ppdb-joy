@@ -3,12 +3,12 @@
 <?= $this->section('content') ?>
 <div class="container-fluid p-0">
 
-    <div class="alert alert-info d-flex align-items-center alert-dismissible" role="alert">
+    <!-- <div class="alert alert-info d-flex align-items-center alert-dismissible" role="alert">
         <div>
             <span>Wording pengumuman</span>
         </div>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    </div> -->
 
     <h1 class="h3 mb-3"><strong>User</strong> Dashboard</h1>
 
@@ -16,12 +16,23 @@
         <div class="col-lg-7">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">
-                        Aktivitas Terakhir
+                    <div class="card-title mb-0">
+                        Pengumuman terkini
                     </div>
                 </div>
                 <div class="card-body">
-
+                    <?php foreach ($pengumuman_terkini as $key => $pengumuman): ?>
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="/pengumuman/<?= $pengumuman['id'] ?>" target="_blank" rel="noopener noreferer">
+                                    <h6><strong><?= $pengumuman['judul'] ?></strong></h6>
+                                </a>
+                                <div>
+                                    <?= $pengumuman['isi'] ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

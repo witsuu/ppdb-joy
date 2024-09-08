@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Admin;
 
+use App\Models\UserModel;
+
 class Dashboard extends \App\Controllers\BaseController
 {
     public function index()
@@ -10,6 +12,17 @@ class Dashboard extends \App\Controllers\BaseController
             return redirect()->to('/login');
         }
 
-        return view('admin/dashboard');
+        $userModel = new UserModel();
+
+        $userSubmitted = $userModel->getAllUserInformationSubmitted();
+        $userVerified = $userModel->getAllUserInformationVerified();
+        $userNotVerified = $userModel->getAllUserInformationNotVerified();
+
+        return view('admin/dashboard', [
+            'title' => 'Admin Dashboard',
+            'userSubmitted' => $userSubmitted,
+            'userVerified' => $userVerified,
+            'userNotVerified' => $userNotVerified
+        ]);
     }
 }

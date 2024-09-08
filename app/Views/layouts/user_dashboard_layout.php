@@ -25,6 +25,7 @@
             font-family: "Nunito Sans", sans-serif;
         }
     </style>
+
     <?= $this->renderSection('head') ?>
 </head>
 
@@ -46,8 +47,8 @@
                             <i class="align-middle" data-feather="home"></i> <span class="align-middle">Dashboard</span>
                         </a>
                     </li>
-                    <li class="sidebar-item <?= set_active('user/ppdb') ?>">
-                        <a class="sidebar-link" href="/user/ppdb">
+                    <li class="sidebar-item <?= set_active('user/psb') ?>">
+                        <a class="sidebar-link" href="/user/psb">
                             <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">PSB</span>
                         </a>
                     </li>

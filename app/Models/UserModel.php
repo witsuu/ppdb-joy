@@ -15,7 +15,7 @@ class UserModel extends Model
     protected $hidden = ['password', 'role'];
 
     // Fungsi untuk melakukan join dari tabel users ke tabel lain
-    public function getFullData($userId)
+    public function getDataById($userId)
     {
         $data = $this->select('users.*, informasi_peserta.*, informasi_ayah.nama as nama_ayah, informasi_ibu.*, dokumen_peserta.*')
             ->join('informasi_peserta', 'informasi_peserta.user_id = users.id', 'left')
@@ -38,22 +38,24 @@ class UserModel extends Model
         $db      = \Config\Database::connect();
 
         $dataUser = $this->find($userId);
-        $dataInformasiPeserta = $db->table('informasi_peserta')->where('user_id', $userId)->get()->getResultArray();
-        $dataInformasiAyah = $db->table('informasi_ayah')->where('user_id', $userId)->get()->getResultArray();
-        $dataInformasiIbu = $db->table('informasi_ibu')->where('user_id', $userId)->get()->getResultArray();
-        $dataDokumen = $db->table('dokumen_peserta')->where('user_id', $userId)->get()->getResultArray();
+        if ($dataUser) {
+            $dataInformasiPeserta = $db->table('informasi_peserta')->where('user_id', $userId)->get()->getResultArray();
+            $dataInformasiAyah = $db->table('informasi_ayah')->where('user_id', $userId)->get()->getResultArray();
+            $dataInformasiIbu = $db->table('informasi_ibu')->where('user_id', $userId)->get()->getResultArray();
+            $dataDokumen = $db->table('dokumen_peserta')->where('user_id', $userId)->get()->getResultArray();
 
-        $dataUser['informasiPeserta'] = $dataInformasiPeserta[0] ?? null;
-        $dataUser['informasiAyah'] = $dataInformasiAyah[0] ?? null;
-        $dataUser['informasiIbu'] = $dataInformasiIbu[0] ?? null;
-        $dataUser['dokumen'] = $dataDokumen[0] ?? null;
+            $dataUser['informasiPeserta'] = $dataInformasiPeserta[0] ?? null;
+            $dataUser['informasiAyah'] = $dataInformasiAyah[0] ?? null;
+            $dataUser['informasiIbu'] = $dataInformasiIbu[0] ?? null;
+            $dataUser['dokumen'] = $dataDokumen[0] ?? null;
 
-        if ($dataUser['password'] && $dataUser['role']) {
-            unset($dataUser['password']);
-            unset($dataUser['role']);
+            if ($dataUser['password'] && $dataUser['role']) {
+                unset($dataUser['password']);
+                unset($dataUser['role']);
+            }
+
+            return $dataUser;
         }
-
-        return $dataUser;
     }
 
     public function getAllUserInformation()
@@ -147,6 +149,79 @@ class UserModel extends Model
                 }
 
                 array_push($tempData, $user);
+            }
+        }
+
+        return $tempData;
+    }
+
+    public function getAllUserInformationVerified()
+    {
+        $db      = \Config\Database::connect();
+
+        $dataUser = $this->select('*')->where("role", "user")->orderBy("created_at", "desc")->findAll();
+
+        $tempData = array();
+
+        foreach ($dataUser as $key => $user) {
+            if ($user['password'] && $user['role']) {
+                unset($user['password']);
+                unset($user['role']);
+            }
+
+            $userId = $user['id'];
+
+            $dataInformasiPeserta = $db->table('informasi_peserta')->where('user_id', $userId)->get()->getResultArray();
+            $dataInformasiAyah = $db->table('informasi_ayah')->where('user_id', $userId)->get()->getResultArray();
+            $dataInformasiIbu = $db->table('informasi_ibu')->where('user_id', $userId)->get()->getResultArray();
+            $dataDokumen = $db->table('dokumen_peserta')->where('user_id', $userId)->get()->getResultArray();
+
+            if (!empty($dataInformasiPeserta) && !empty($dataInformasiAyah) && !empty($dataInformasiIbu) && !empty($dataDokumen)) {
+                $user['informasiPeserta'] = $dataInformasiPeserta[0] ?? null;
+
+                if ($dataInformasiPeserta[0]['status'] == "accepted") {
+                    $user['informasiAyah'] = $dataInformasiAyah[0] ?? null;
+                    $user['informasiIbu'] = $dataInformasiIbu[0] ?? null;
+                    $user['dokumen'] = $dataDokumen[0] ?? null;
+
+                    array_push($tempData, $user);
+                }
+            }
+        }
+
+        return $tempData;
+    }
+
+    public function getAllUserInformationNotVerified()
+    {
+        $db      = \Config\Database::connect();
+
+        $dataUser = $this->select('*')->where("role", "user")->orderBy("created_at", "desc")->findAll();
+
+        $tempData = array();
+
+        foreach ($dataUser as $key => $user) {
+            if ($user['password'] && $user['role']) {
+                unset($user['password']);
+                unset($user['role']);
+            }
+
+            $userId = $user['id'];
+
+            $dataInformasiPeserta = $db->table('informasi_peserta')->where('user_id', $userId)->get()->getResultArray();
+            $dataInformasiAyah = $db->table('informasi_ayah')->where('user_id', $userId)->get()->getResultArray();
+            $dataInformasiIbu = $db->table('informasi_ibu')->where('user_id', $userId)->get()->getResultArray();
+            $dataDokumen = $db->table('dokumen_peserta')->where('user_id', $userId)->get()->getResultArray();
+
+            if (!empty($dataInformasiPeserta) && !empty($dataInformasiAyah) && !empty($dataInformasiIbu) && !empty($dataDokumen)) {
+                if ($dataInformasiPeserta[0]['status'] == "reject") {
+                    $user['informasiPeserta'] = $dataInformasiPeserta[0] ?? null;
+                    $user['informasiAyah'] = $dataInformasiAyah[0] ?? null;
+                    $user['informasiIbu'] = $dataInformasiIbu[0] ?? null;
+                    $user['dokumen'] = $dataDokumen[0] ?? null;
+
+                    array_push($tempData, $user);
+                }
             }
         }
 

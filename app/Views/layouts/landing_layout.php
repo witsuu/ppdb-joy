@@ -23,6 +23,8 @@
 
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
+
+    <?= $this->renderSection('head') ?>
 </head>
 
 <body>
@@ -38,13 +40,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto ms-lg-3 mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Pengumuman</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Blog</a>
+                            <a class="nav-link" aria-current="page" href="/pengumuman">Pengumuman</a>
                         </li>
                     </ul>
                     <div class="position-relative">

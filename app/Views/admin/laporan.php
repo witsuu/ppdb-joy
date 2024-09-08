@@ -41,8 +41,7 @@
     <?php endif; ?>
 
     <div class="w-100 position-relative">
-        <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#modal-add-pendaftar">Tambah Data</button>
-        <h1 class="h3 mb-3">Manajemen Pendaftar</h1>
+        <h1 class="h3 mb-3">Laporan Pendaftar</h1>
     </div>
 
     <div class="row">
@@ -83,10 +82,9 @@
                                             } ?>
                                         </td>
                                         <td>
-                                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-edit-user-<?= $user['id'] ?>">Edit</button>
-                                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-<?= $user['id'] ?>">Hapus</button>
-                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-view-user-<?= $user['id'] ?>">Lihat</button>
-                                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-verify-<?= $user['id'] ?>">Verifikasi</button>
+                                            <form action="/admin/laporan/cetak/<?= $user['id'] ?>" method="post">
+                                                <button type="submit" class="btn btn-success">Cetak</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -120,12 +118,4 @@
         });
     }
 </script>
-<?= $this->endSection() ?>
-
-<?= $this->section("modals") ?>
-<?= view_cell('\App\Libraries\Widget::modalDelete', ['data' => $users, 'url' => "/admin/pendaftar/delete/"]) ?>
-<?= view_cell('\App\Libraries\Widget::modalEditPendaftar', ['data' => $users, 'url' => "/admin/pendaftar/update/"]) ?>
-<?= view_cell('\App\Libraries\Widget::modalViewUser', ['data' => $users]) ?>
-<?= view_cell('\App\Libraries\Widget::modalVerify', ['data' => $users]) ?>
-<?= view_cell('\App\Libraries\Widget::modalAddPendaftar', ['semua_akun' => $akun]) ?>
 <?= $this->endSection() ?>

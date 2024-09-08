@@ -58,6 +58,16 @@
                             <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Manajemen Pendaftar</span>
                         </a>
                     </li>
+                    <li class="sidebar-item <?= set_active('admin/laporan') ?>">
+                        <a class="sidebar-link <?= set_active('admin/laporan') ?>" href="/admin/laporan">
+                            <i class="align-middle" data-feather="file-text"></i> <span class="align-middle">Laporan Pendaftar</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item <?= set_active('admin/pengumuman') ?>">
+                        <a class="sidebar-link <?= set_active('admin/pengumuman') ?>" href="/admin/pengumuman">
+                            <i class="align-middle" data-feather="hash"></i> <span class="align-middle">Pengumuman</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>

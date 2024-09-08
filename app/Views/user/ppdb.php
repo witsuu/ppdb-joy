@@ -369,7 +369,7 @@
                         <h5 class="card-title mb-0">Formulir Pendaftaran</h5>
                     </div>
                     <div class="card-body">
-                        <form action="/user/ppdb" method="post" enctype="multipart/form-data">
+                        <form action="/user/psb" method="post" enctype="multipart/form-data">
                             <div class="row justify-content-start">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">NIK</label>
@@ -549,6 +549,6 @@
 
 <?= $this->section("modals") ?>
 <?php if ($userPpdb['informasiPeserta']): ?>
-    <?= view_cell('\App\Libraries\Widget::modalEditPpdb', ['data' => $userPpdb, 'url' => "/user/ppdb/update/"]) ?>
+    <?= view_cell('\App\Libraries\Widget::modalEditPpdb', ['data' => $userPpdb, 'url' => "/user/psb/update/"]) ?>
 <?php endif; ?>
 <?= $this->endSection() ?>
