@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Sep 2024 pada 19.08
+-- Waktu pembuatan: 08 Sep 2024 pada 19.09
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.6
 
@@ -164,6 +164,28 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `pengumuman`
+--
+
+CREATE TABLE `pengumuman` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `isi` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pengumuman`
+--
+
+INSERT INTO `pengumuman` (`id`, `judul`, `isi`, `created_at`, `updated_at`) VALUES
+(2, 'Pengumuman 2', 'Pengumuman 2 ini di jelaskan dengan', '2024-09-08 09:00:54', '2024-09-08 09:01:57'),
+(3, 'Pengumuman 1', 'Dskripsi Pengumuman 1\r\n', '2024-09-08 09:01:10', '2024-09-08 09:01:10');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `personal_access_tokens`
 --
 
@@ -203,7 +225,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@app.com', '$2y$10$8v1/iMHprt/wJVfJN5VC/ue/JtGST6F.bLdSCkE.1MYBgcnOfu83u', 'admin', '2024-09-05 16:41:08', '2024-09-05 16:41:08'),
 (2, 'Witsudi Anasrullah', 'witsudi217@gmail.com', '$2y$10$S6hYzTSika3LGZY2TZcWBuYLDRg8WqfGnNMPIguvl0XF2gi8S5L7m', 'user', '2024-09-05 18:34:16', '2024-09-05 18:34:16'),
-(4, 'Ulydhatul Ismiyana', 'ulydhatul.ismiayana@gmail.com', '$2y$10$CTtaNe9gw9HFJv1tARyIcuHgbjxnXH6M1JSln4UeP0.Uwz6MTEUg6', 'user', '2024-09-06 03:55:27', '2024-09-06 03:55:27');
+(4, 'Ulydhatul Ismiyana', 'ulydhatul.ismiayana@gmail.com', '$2y$10$CTtaNe9gw9HFJv1tARyIcuHgbjxnXH6M1JSln4UeP0.Uwz6MTEUg6', 'user', '2024-09-06 03:55:27', '2024-09-06 03:55:27'),
+(5, 'User 1', 'user1@gmail.com', '$2y$10$gfkCx2ZBIEXagPL0TI5.zej8CQrnOYZdabCZmqldG.39Pe8sNUWwe', 'user', '2024-09-07 17:17:43', '2024-09-07 17:17:43');
 
 --
 -- Indexes for dumped tables
@@ -241,6 +264,12 @@ ALTER TABLE `informasi_peserta`
 -- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `pengumuman`
+--
+ALTER TABLE `pengumuman`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -293,6 +322,12 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT untuk tabel `pengumuman`
+--
+ALTER TABLE `pengumuman`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
@@ -302,7 +337,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
