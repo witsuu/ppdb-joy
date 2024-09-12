@@ -506,15 +506,15 @@
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label">Foto (Ukuran 3x4)</label>
-                                    <input class="form-control form-control-lg" type="file" name="foto" required />
+                                    <input class="form-control form-control-lg" type="file" name="foto" accept="image/*" required />
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label">Foto Akte Kelahiran</label>
-                                    <input class="form-control form-control-lg" type="file" name="foto_akte" required />
+                                    <input class="form-control form-control-lg" type="file" name="foto_akte" accept="image/*" required />
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label">Foto Kartu Keluarga</label>
-                                    <input class="form-control form-control-lg" type="file" name="foto_kk" required />
+                                    <input class="form-control form-control-lg" type="file" name="foto_kk" accept="image/*" required />
                                 </div>
                             </div>
                             <div class="row justify-content-end">
