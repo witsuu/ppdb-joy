@@ -83,7 +83,7 @@
                                                     echo "<span class='text-warning fw-bold'>Menuggu</span>";
                                                     break;
                                                 case 'reject':
-                                                    echo "<span class='text-danger fw-bold'>Data belum memenuhi syarat</span>";
+                                                    echo "<span class='text-danger fw-bold'>Belum Memenuhi Syarat</span>";
                                                     break;
                                                 case 'accepted':
                                                     echo "<span class='text-success fw-bold'>Diterima</span>";
