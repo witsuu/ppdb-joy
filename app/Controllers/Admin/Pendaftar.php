@@ -322,4 +322,29 @@ class Pendaftar extends BaseController
 
         return redirect()->to("/admin/pendaftar")->with('success', 'Peserta berhasil diverifikasi');
     }
+
+    public function delete($id)
+    {
+        $pesertaModel = new InformasiPesertaModel();
+        $ayahModel = new InformasiAyahModel();
+        $ibuModel = new InformasiIbuModel();
+        $dokumenModel = new DokumenPesertaModel();
+
+        try {
+            $informasiPeserta = $pesertaModel->where('user_id', $id);
+            $informasiAyah = $ayahModel->where('user_id', $id);
+            $informasiIbu = $ibuModel->where('user_id', $id);
+            $dokumen = $dokumenModel->where('user_id', $id);
+
+            // Delete Data from database
+            $informasiPeserta->delete();
+            $informasiAyah->delete();
+            $informasiIbu->delete();
+            $dokumen->delete();
+
+            return redirect()->back()->with('success', 'Data Pendaftar berhasil dihapus');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Data Pendaftar gagal dihapus');
+        }
+    }
 }
