@@ -93,7 +93,7 @@
                                                     break;
                                             } ?>
                                         </td>
-                                        <td>
+                                        <td class="d-flex" style="gap: .25rem;">
                                             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-edit-user-<?= $user['id'] ?>">Edit</button>
                                             <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-<?= $user['id'] ?>">Hapus</button>
                                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-view-user-<?= $user['id'] ?>">Lihat</button>
