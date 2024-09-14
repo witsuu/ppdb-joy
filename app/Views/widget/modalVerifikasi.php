@@ -31,15 +31,20 @@
         </div>
     </div>
     <script>
-        const verify = document.querySelector("#verify_select");
-        const notes = document.querySelector("#note_input");
+        function handleVerify() {
+            const modalVerify = document.querySelector("#modal-verify-<?= $value['id'] ?>");
+            const verify = modalVerify.querySelector("#verify_select");
+            const notes = modalVerify.querySelector("#note_input");
 
-        verify.addEventListener("change", () => {
-            if (verify.value == "reject") {
-                notes.classList.remove('d-none');
-            } else {
-                notes.classList.add('d-none');
-            }
-        });
+            verify.addEventListener("change", () => {
+                if (verify.value == "reject") {
+                    notes.classList.remove('d-none');
+                } else {
+                    notes.classList.add('d-none');
+                }
+            });
+        }
+
+        handleVerify();
     </script>
 <?php endforeach; ?>
