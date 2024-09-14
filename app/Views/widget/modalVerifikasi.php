@@ -14,7 +14,7 @@
                             <select name="verify" id="verify_select" class="form-select form-select-lg">
                                 <option selected disabled>Verifikasi Pendaftar</option>
                                 <option value="accepted">Terima</option>
-                                <option value="reject">Tolak</option>
+                                <option value="reject">Belum Memenuhi Syarat</option>
                             </select>
                         </div>
                         <div class="mb-3 d-none" id="note_input">
